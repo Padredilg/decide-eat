@@ -1,3 +1,10 @@
+:root{
+    --whiteish: #FFFCF7;
+    --orangey-brown: #BD764C;
+    --medium-brown: #764E37;
+    --dark-brown: #474037;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -6,7 +13,7 @@
 
 body{
     font-family: "Hammersmith One";
-    color: white;
+    color: var(--whiteish);
 }
 
 header{
@@ -21,31 +28,53 @@ header{
 }
 
 #section-1{
-    background-color: #474037;
-    /* I put an opacity on both the images of 68% and 
-    the color overlay was hex #474037 for the first image
-     with the candles and for the 2nd image the overlay color #BD764C */
+    background-color: var(--dark-brown);
     background-image: url("../images/section-1-bg.jpg");
     background-size: cover;
     opacity: 68%;
+    padding: 180px 15% 65px 15%;
+}
 
-    /* background-color: ; */
+#section-1 h2 {
+    font-size: 75px;
+    line-height: 80%;
+}
+
+#take-quiz {
+    padding: 15px 50px;
+    font-size: 2rem;
+    font-weight: bold;
+    background: white;
+    border: 0;
+    border-radius: 15px;
 }
 
 #section-2{
-    background-color: #BD764C;
-    margin: 25px 0;
+    background-color: var(--orangey-brown);;
+    margin: 15px 0;
+    padding: 120px 15% 65px 15%;
+}
 
+#section-2 h2 {
+    font-size: 55px;
+    line-height: 80%;
+    text-align: center;
 }
 
 #section-3{
-    background-color: #BD764C;
+    background-color: var(--orangey-brown);;
     background-image: url("../images/section-3-bg.jpg");
     background-size: cover;
     opacity: 68%;
+    padding: 50px 15% 35px 15%;
 
-    /* background-color: ; */
 }
+
+#section-3 h2 {
+    font-size: 45px;
+    line-height: 80%;
+}
+
 .columns{
     align-items: center;
 }
