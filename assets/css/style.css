@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: "Hammersmith One";
+    color: white;
+}
+
 header{
     position: -webkit-sticky;
     position: sticky;
@@ -25,6 +30,12 @@ header{
     opacity: 68%;
 
     /* background-color: ; */
+}
+
+#section-2{
+    background-color: #BD764C;
+    margin: 25px 0;
+
 }
 
 #section-3{
