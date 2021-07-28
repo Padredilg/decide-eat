@@ -4,39 +4,77 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Framework - Bulma -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <!-- fontawesome - use for icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Decide Eat</title>
 </head>
 <body>
     <header>
-        <h1>Decide Eat</h1>
-        <div>
-            <textarea></textarea>
-            <button></button>
-        </div>
+        <div class="columns">
+            <div class="column center">
+                <h1 class="text-uppercase is-3">Decide Eat</h1>
+            </div>
+            <div class="column center">
+                <div>
+                    <textarea></textarea>
+                    <div>
+                        <!--Include buttons for different culinaries dynamically. 
+                        when clicked they will use a recipe web API to find results-->
+                    </div>
+                </div>
+            </div>
+          </div>
     </header>
 
     <main>
         <section>
-            <h2>Let us decide</h2>
-            <h4>Take our quiz to find your perfect dinner combination</h4>
-            <button>Start Quiz</button>
+            <div class="columns">
+                <div class="column center">
+                    <h2 class="text-uppercase">Let us decide</h2>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column center">
+                    <h4 class="text-uppercase">Take our quiz to find your perfect dinner combination</h4>                    
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column center">
+                    <button class="button is-white text-uppercase">Start Quiz</button>
+                </div>
+            </div>
+
+
         </section>
 
         <section>
-            <h2>Elevate your date</h2>
-            <h4>Personalized recommendations from dinner recipe, to music, to drink pairings eating. Eating becomes just as exciting as making them.</h4>
-            <div>
-                <button></button>
-                <p></p>
+            <div class="block center">
+                <h2 class="text-uppercase">Elevate your date</h2>
+            </div>
+
+            <div class="block center is-6">
+                <h4>Personalized recommendations from dinner recipe, to music, to drink pairings eating. Eating becomes just as exciting as making them.</h4>
+            </div>
+
+            <div class="block center">
+                <div>
+                    <button><!-- include icon --></button>
+                    <p>button</p>
+                </div>
             </div>
         </section>
 
         <section>
-            <h2>Explore by category</h2>
-            
+            <div class="block center">
+                <h2 class="text-uppercase">Explore by category</h2>
+            </div>
         </section>
         
     </main>
-
+    
+    <script src="./script.js"></script>
 </body>
 </html>
