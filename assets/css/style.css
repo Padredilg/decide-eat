@@ -1,0 +1,144 @@
+:root{
+    --whiteish: #FFFCF7;
+    --orangey-brown: #BD764C;
+    --medium-brown: #764E37;
+    --dark-brown: #474037;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Hammersmith One";
+    color: var(--whiteish);
+}
+
+header {
+    margin: 0 auto 9rem auto;
+    padding: 1rem 6rem 0 6rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home {
+    font-size: 3.3vw;
+}
+
+header div {
+    display: flex;
+    align-items: center;
+}
+
+header div textarea {
+    border-radius: 20px 0 0 20px;
+}
+
+.search-icon {
+    color: var(--whiteish);
+    border-radius: 0 20px 20px 0;
+    padding: 5.5px 10px;
+    background-image: linear-gradient(45deg, var(--orangey-brown) 0%, var(--orangey-brown) 52%, var(--medium-brown) 90%);
+    transition: all .3s ease-in-out;
+    background-size: 1px 280px;
+    background-position: 0 -10px;
+}
+  
+.search-icon:hover {
+    background-position: 1px -200px;
+    color: var(--dark-brown);
+}
+
+#section-1{
+    background-color: var(--dark-brown);
+    background-image: url("../images/section-1-bg.jpg");
+    background-size: cover;
+    opacity: 68%;
+}
+
+.padding-1{
+    padding: 0px 15% 65px 15%;
+}
+
+#section-1 h2 {
+    font-size: 75px;
+    line-height: 80%;
+}
+
+#section-1 h4 {
+    padding: 0 26%;
+    font-size: 1.2rem;
+    margin: 4% auto;
+}
+
+#vertical-bar {
+    background-color: var(--whiteish);
+    width: 2px;
+    height: 90px;
+    margin: 0 auto;
+}
+
+#take-quiz {
+    padding: 15px 50px;
+    font-size: 2rem;
+    font-weight: bold;
+    border: 0;
+    border-radius: 15px;
+    background-image: linear-gradient(45deg, var(--orangey-brown) 0%, var(--orangey-brown) 52%, var(--whiteish) 90%);
+    transition: all .3s ease-in-out;
+    background-size: 1px 280px;
+    background-position: 0 -10px;
+}
+  
+#take-quiz:hover {
+    background-position: 1px -200px;
+    transform: scale(1.06);
+    color: var(--whiteish);
+}
+
+#section-2{
+    background-color: var(--orangey-brown);;
+    margin: 15px 0;
+    padding: 120px 15% 65px 15%;
+}
+
+#section-2 h2 {
+    font-size: 55px;
+    line-height: 80%;
+    text-align: center;
+}
+
+#decide-eat-logo{
+    width: 15%;
+    background-color: transparent;
+}
+
+#section-3{
+    background-color: var(--orangey-brown);;
+    background-image: url("../images/section-3-bg.jpg");
+    background-size: cover;
+    opacity: 68%;
+    padding: 50px 15% 35px 15%;
+
+}
+
+#section-3 h2 {
+    font-size: 45px;
+    line-height: 80%;
+}
+
+.columns{
+    align-items: center;
+}
+
+.center {
+    text-align: center;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
