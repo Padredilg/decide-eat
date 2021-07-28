@@ -4,6 +4,37 @@
     box-sizing: border-box;
 }
 
+header{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-image: url("../images/hero-bg.jpg");
+    background-size: cover;
+    /* background-position: 80%; */
+    background-attachment: fixed;
+    z-index: 9999;
+}
+
+#section-1{
+    background-color: #474037;
+    /* I put an opacity on both the images of 68% and 
+    the color overlay was hex #474037 for the first image
+     with the candles and for the 2nd image the overlay color #BD764C */
+    background-image: url("../images/section-1-bg.jpg");
+    background-size: cover;
+    opacity: 68%;
+
+    /* background-color: ; */
+}
+
+#section-3{
+    background-color: #BD764C;
+    background-image: url("../images/section-3-bg.jpg");
+    background-size: cover;
+    opacity: 68%;
+
+    /* background-color: ; */
+}
 .columns{
     align-items: center;
 }
