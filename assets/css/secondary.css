@@ -21,8 +21,12 @@ body{
     text-transform: uppercase;
 }
 
+.letter-spacing{
+    letter-spacing: 5px;
+}
+
 header {
-    margin: 0 auto 9rem auto;
+    margin: 0 auto 1rem auto;
     padding: 1rem 6rem 0 6rem;
     display: flex;
     flex-direction: row;
@@ -32,6 +36,7 @@ header {
 
 .home {
     font-size: 3.4vw;
+    letter-spacing: 5px;
 }
 
 header form {
@@ -71,3 +76,20 @@ header form {
     color: var(--dark-brown);
 }
 
+#menu-bar{
+    background-color: rgba(189, 118, 76, 0.65);
+    width: 100%;
+    padding: 2% 0;
+    border-bottom: solid 9px rgb(255,255,255,0.75);
+}
+
+.results-for{
+    display: flex;
+}
+
+.results-for h2 {
+    margin: 30px auto;
+    width: 95%;
+    font-size: 1.3rem;
+    letter-spacing: 4px;
+}

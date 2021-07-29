@@ -20,6 +20,10 @@ body{
     text-transform: uppercase;
 }
 
+.letter-spacing{
+    letter-spacing: 5px;
+}
+
 header {
     margin: 0 auto 9rem auto;
     padding: 1rem 6rem 0 6rem;
@@ -87,8 +91,8 @@ header form {
 }
 
 #section-1 h4 {
-    padding: 0 26%;
-    font-size: 1.2rem;
+    padding: 0 22%;
+    font-size: 1.4rem;
     margin: 4% auto;
 }
 
@@ -129,9 +133,16 @@ header form {
     text-align: center;
 }
 
-#decide-eat-logo{
-    width: 15%;
-    background-color: transparent;
+#section-2 h4 {
+    padding: 0 22%;
+    font-size: 1.4rem;
+    margin: 4% auto;
+}
+
+#decide-eat-logo {
+    width: 23%;
+    margin: 0% auto -7% auto;
+    /* background-color: transparent; */
 }
 
 #section-3{
