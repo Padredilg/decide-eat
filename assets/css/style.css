@@ -16,6 +16,10 @@ body{
     color: var(--whiteish);
 }
 
+.text-uppercase {
+    text-transform: uppercase;
+}
+
 header {
     margin: 0 auto 9rem auto;
     padding: 1rem 6rem 0 6rem;
@@ -150,8 +154,4 @@ header form {
 
 .center {
     text-align: center;
-}
-
-.text-uppercase {
-    text-transform: uppercase;
 }

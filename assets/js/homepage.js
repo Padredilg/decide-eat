@@ -38,6 +38,9 @@ link spotify(or another music app for music) -- we could use the keyword from th
 
 include filters for whether the user wants to find cuisines, or diets, or just anything
 
+If searchbar is used, search with query
+if category is used, search by culinary
+why only 10 results appear?
 */
 
 var searchEl = document.querySelector("#search");
@@ -49,46 +52,11 @@ var searchHandler = function(event) {
 
     var searchString = searchKeyEl.value.trim();
 
-    getRecipes(searchString);
-}
-
-var getRecipes = function(searchBarValue) {
-    searchKeyEl.value = "";
-
-    if(searchBarValue == ""){
+    if(searchString == ""){
         return false;
     }
-    //we are using the search as a query
-    var apiUrl = "https://api.spoonacular.com/recipes/complexSearch?apiKey=86228e9ea08f4ba99c66512deff69e2a&query=" + searchBarValue;
-    //fetching by query to find foods with that name.
-    fetch(apiUrl)
-        .then(function(response) {
-            if(response.ok){
-                response.json().then(function(data) {
-                    //pass data to new function that will display all images with their names and descriptions and recipes
-                    //if response is ok, then open new page with this data. Pass data.results.id to new function
-                    //on new function do a new fetch with the passed id
-                    console.log(data);
-                    displayOptions(data.results);
-                });
-            }
-            //if request was not successful
-            else{
-                alert("Error: No" + searchBarValue + "found!");
-            }
-        })
-        .catch(function(error){
-            alert("No internet connection!");
-        })      
-};
 
-var displayOptions = function(array){
-    for(var i=0; i<array.length; i++){
-        console.log(array[i].title);
-        console.log(array[i].id);
-    }
+    location.href = "./search-results.html?search=" + searchString;
 }
-
-
 
 searchEl.addEventListener("submit", searchHandler);
