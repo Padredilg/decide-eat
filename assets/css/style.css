@@ -29,23 +29,28 @@ header {
     font-size: 3.3vw;
 }
 
-header div {
+header form {
     display: flex;
     align-items: center;
 }
 
-header div textarea {
+.search-box {
     border-radius: 20px 0 0 20px;
+    padding: 7px 0;
+    border-style: none;
+    border: solid 1.85px rgba(0,0,0,.2);
 }
 
 .search-icon {
     color: var(--whiteish);
     border-radius: 0 20px 20px 0;
-    padding: 5.5px 10px;
+    padding: 7px 10px;
     background-image: linear-gradient(45deg, var(--orangey-brown) 0%, var(--orangey-brown) 52%, var(--medium-brown) 90%);
     transition: all .3s ease-in-out;
     background-size: 1px 280px;
     background-position: 0 -10px;
+    border-style: none;
+    border: solid 1.85px rgba(0,0,0,.2);
 }
   
 .search-icon:hover {
