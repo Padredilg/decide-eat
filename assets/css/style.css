@@ -24,6 +24,10 @@ body{
     letter-spacing: 5px;
 }
 
+.center {
+    text-align: center;
+}
+
 header {
     margin: 0 auto 9rem auto;
     padding: 1rem 6rem 0 6rem;
@@ -161,8 +165,4 @@ header form {
 
 .columns{
     align-items: center;
-}
-
-.center {
-    text-align: center;
 }

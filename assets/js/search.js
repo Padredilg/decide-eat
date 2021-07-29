@@ -43,10 +43,12 @@ var getRecipes = function(keyword) {
 
 var displayOptions = function(array, keyword){
     if(array.length == 0){
+        $("#no-results").text("No results found for " + keyword + ".");
         //write: No recipes found for keyword.
         return false;
     }
 
+    $("#no-results").text("");
     //else, create cards
     for(var i=0; i<array.length; i++){
         //maybe we can create card buttons that englobe the image with name at the bottom and when clicked display the info

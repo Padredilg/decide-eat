@@ -17,12 +17,20 @@ body{
     background-color: var(--whiteish);
 }
 
+main{
+    padding: 0 0 3% 0;
+}
+
 .text-uppercase {
     text-transform: uppercase;
 }
 
 .letter-spacing{
     letter-spacing: 5px;
+}
+
+.center {
+    text-align: center;
 }
 
 header {
@@ -93,4 +101,8 @@ header form {
     width: 95%;
     font-size: 1.3rem;
     letter-spacing: 4px;
+}
+
+#no-results{
+    font-size: 1.25rem;
 }
