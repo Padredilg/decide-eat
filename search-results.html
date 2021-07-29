@@ -16,7 +16,7 @@
 <body>
     <main>
         <header>
-            <h1 class="home text-uppercase">Decide Eat</h1>
+            <a href="./index.html" class="home text-uppercase">Decide Eat</a>
             <form id="search">
                 <input name="search-key" id="search-key" type="text" class="search-box" />
                 <button type="submit" class="search-icon"><i class="fas fa-search"></i></button>
@@ -27,12 +27,13 @@
 
         <section>
             <div class="results-for">
-                <h2 class="text-uppercase">Recipe Results For: </h2>
+                <h2 class="text-uppercase">Recipe Results For <span id="string-span"></span>: </h2>
             </div>
         </section>
         
     </main>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./assets/js/search.js"></script>
 </body>
 </html>

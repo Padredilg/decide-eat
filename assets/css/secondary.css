@@ -37,6 +37,7 @@ header {
 .home {
     font-size: 3.4vw;
     letter-spacing: 5px;
+    color: var(--dark-brown);
 }
 
 header form {

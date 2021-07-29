@@ -1,17 +1,18 @@
+//querySelectors
+var searchEl = document.querySelector("#search");
+var searchKeyEl = document.querySelector("#search-key");
+
+//variables
+var keyword;
+
+//functions
 var getkeyword = function(){
     var queryString = document.location.search;
-    var keyword = queryString.split("=")[1];
-    console.log(keyword);
+    keyword = queryString.split("=")[1];
 
-    //if some value for keyword exists
     if(keyword){
-        //give text to the span element in the header title in the html file
-        // keywordEl.textContent = keyword;
-        //create the issues with the username/keyword coming from the right side of the = to the right of the ? in the url
+        $("#string-span").text(keyword);//recipes for keyword
         getRecipes(keyword);
-    }
-    else{//go to main to try to get some value
-        document.location.replace("./index.html");
     }
 };
 
@@ -27,7 +28,7 @@ var getRecipes = function(keyword) {
                     //if response is ok, then open new page with this data. Pass data.results.id to new function
                     //on new function do a new fetch with the passed id
                     // console.log(data);
-                    displayOptions(data.results);
+                    displayOptions(data.results, keyword);
                 });
             }
             //if request was not successful
@@ -40,19 +41,90 @@ var getRecipes = function(keyword) {
         })      
 };
 
-var displayOptions = function(array){
+var displayOptions = function(array, keyword){
+    if(array.length == 0){
+        //write: No recipes found for keyword.
+        return false;
+    }
+
+    //else, create cards
     for(var i=0; i<array.length; i++){
         //maybe we can create card buttons that englobe the image with name at the bottom and when clicked display the info
         console.log(array[i].title);
         
         //addEventListener for click, then open modal with info from the option clicked
         console.log(array[i].id);
-
-        
-
     }
-}
+};
 
+var searchHandler = function(event) {
+    event.preventDefault();
 
+    var searchString = searchKeyEl.value.trim();
 
+    if(searchString == ""){
+        return false;
+    }
+    else{
+        keyword = searchString;
+        $("#string-span").text(keyword);//recipes for keyword
+        $('#search').children('input').val('');//clear input value
+        getRecipes(keyword);
+    }
+};
+
+//callers/listeners
+searchEl.addEventListener("submit", searchHandler);
 getkeyword();
+
+
+
+// var displayRepos = function(repos, searchTerm){
+//     //clear old content
+//     repoContainerEl.textContent = "";
+//     repoSearchTerm.textContent = searchTerm;
+
+//     if(repos.length === 0){
+//         repoContainerEl.textContent = "No repositories found.";
+//         return;
+//     }
+
+//     for(var i=0; i<repos.length; i++){//looping through all repos that a give user has
+//         //format repo name
+//         var repoName = repos[i].owner.login + "/" + repos[i].name;
+
+//         //create a container for each repo
+//         var repoEl = document.createElement("a");
+//         repoEl.classList = "list-item flex-row justify-space-between align-center";
+//         repoEl.setAttribute("href", "./single-repo.html?repo=" + repoName);
+
+//         //create a span element to hold repository name
+//         var titleEl = document.createElement("span");
+//         titleEl.textContent = repoName;
+
+//         //append span to container, 
+//         repoEl.appendChild(titleEl);
+
+//         //create a status element
+//         var statusEl = document.createElement("span");
+//         statusEl.classList = "flex-row align-center";
+
+//         //check if current repo has issues or not
+//         if (repos[i].open_issues_count > 0){
+//             statusEl.innerHTML = 
+//             "<i class='fas fa-times status-icon icon-danger'></i>" + repos[i].open_issues_count + " issue(s)";
+//         }
+//         else{
+//             statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
+//         }
+
+//         //append second span to container
+//         repoEl.appendChild(statusEl);
+
+//         //append container to dom
+//         repoContainerEl.appendChild(repoEl);
+//     }
+// }
+
+
+
