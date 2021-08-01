@@ -59,4 +59,5 @@ var searchHandler = function(event) {
     location.href = "./search-results.html?search=" + searchString;
 }
 
+
 searchEl.addEventListener("submit", searchHandler);
