@@ -3,6 +3,7 @@
     --orangey-brown: #BD764C;
     --medium-brown: #764E37;
     --dark-brown: #474037;
+    --light-brown: #C8A585;
 }
 
 *{
@@ -72,7 +73,7 @@ header form {
     color: var(--whiteish);
     border-radius: 0 20px 20px 0;
     padding: 7px 10px;
-    background-image: linear-gradient(45deg, var(--whiteish) 0%, var(--orangey-brown) 52%, var(--dark-brown) 90%);
+    background-color: var(--dark-brown);
     transition: all .3s ease-in-out;
     background-size: 1px 280px;
     background-position: 0 -10px;
@@ -82,11 +83,13 @@ header form {
   
 .search-icon:hover {
     background-position: 1px -200px;
-    color: var(--dark-brown);
+    background-color: var(--light-brown);
+    color: var(--whiteish);
+
 }
 
 #menu-bar{
-    background-color: rgba(189, 118, 76, 0.65);
+    background-color: var(--light-brown);
     width: 100%;
     padding: 2% 0;
     border-bottom: solid 9px rgb(255,255,255,0.75);
