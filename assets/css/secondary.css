@@ -106,3 +106,35 @@ header form {
 #no-results{
     font-size: 1.25rem;
 }
+
+#display-recipes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+    width: 95%;
+}
+
+.recipe-card {
+    text-align: center;
+    margin: 15px;
+    background: none;
+    border: none;
+}
+
+.recipe-img {
+    border-radius: 30px;
+    width: 74%;
+}
+
+.recipe-title{
+    font-size: 15px;
+    text-align: left;
+    padding-left: 37px;
+    font-weight: bold;
+}
+
+
