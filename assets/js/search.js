@@ -88,8 +88,7 @@ var createCardRecipe = function(title, id, imageUrl){
 };
 
 var recipeClickHandler = function (event){
-    console.log("You clicked on:")
-    console.log(event.target);
+    console.log(event);
 
     //addEventListener for click, then open modal with info from the option clicked
 };
