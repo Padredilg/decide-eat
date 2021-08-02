@@ -89,6 +89,7 @@ var createCardRecipe = function(title, id, imageUrl){
 
 var recipeClickHandler = function (event){
     console.log(event);
+    $(".modal").classList = "is-active";
 
     //addEventListener for click, then open modal with info from the option clicked
 };
