@@ -3,6 +3,7 @@
     --orangey-brown: #BD764C;
     --medium-brown: #764E37;
     --dark-brown: #474037;
+    --light-brown: #C8A585;
 }
 
 *{
@@ -65,7 +66,7 @@ header form {
     color: var(--whiteish);
     border-radius: 0 20px 20px 0;
     padding: 7px 10px;
-    background-image: linear-gradient(45deg, var(--orangey-brown) 0%, var(--orangey-brown) 52%, var(--medium-brown) 90%);
+    background-color: var(--dark-brown);
     transition: all .3s ease-in-out;
     background-size: 1px 280px;
     background-position: 0 -10px;
@@ -75,14 +76,14 @@ header form {
   
 .search-icon:hover {
     background-position: 1px -200px;
-    color: var(--dark-brown);
+    background-color: var(--light-brown);
+    color: var(--whiteish);
 }
 
 #section-1{
     background-color: var(--dark-brown);
-    background-image: url("../images/section-1-bg.jpg");
+    background-image: url("../images/section-1-bg.png");
     background-size: cover;
-    opacity: 68%;
 }
 
 .padding-1{
@@ -108,11 +109,12 @@ header form {
 }
 
 #take-quiz {
-    padding: 15px 50px;
+    padding: 10px 20px;
     font-size: 2rem;
     font-weight: bold;
     border: 0;
-    border-radius: 15px;
+    border-radius: 20px;
+    color: var(--dark-brown);
     background-image: linear-gradient(45deg, var(--orangey-brown) 0%, var(--orangey-brown) 52%, var(--whiteish) 90%);
     transition: all .3s ease-in-out;
     background-size: 1px 280px;
@@ -151,9 +153,8 @@ header form {
 
 #section-3{
     background-color: var(--orangey-brown);;
-    background-image: url("../images/section-3-bg.jpg");
+    background-image: url("../images/section-3-bg.png");
     background-size: cover;
-    opacity: 68%;
     padding: 50px 15% 35px 15%;
 
 }
@@ -163,6 +164,16 @@ header form {
     line-height: 80%;
 }
 
-.columns{
+.columns {
     align-items: center;
+}
+
+.footer {
+    background-color: var(--light-brown);
+    color: var(--whiteish);
+    padding-top: 19px;
+    padding-bottom: 19px;
+    padding-left: 4px;
+    text-align: center;
+
 }

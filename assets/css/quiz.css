@@ -1,0 +1,18 @@
+:root{
+    --whiteish: #FFFCF7;
+    --orangey-brown: #BD764C;
+    --medium-brown: #764E37;
+    --dark-brown: #474037;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Hammersmith One";
+    color: var(--dark-brown);
+    background-color: var(--whiteish);
+}
