@@ -28,7 +28,7 @@ var getRecipes = function(keyword) {
                     //if response is ok, then open new page with this data. Pass data.results.id to new function
                     //on new function do a new fetch with the passed id
                     // console.log(data);
-                    displayOptions(data.results, keyword);
+                    displayOptions(data.results);
                 });
             }
             //if request was not successful
@@ -41,21 +41,57 @@ var getRecipes = function(keyword) {
         })      
 };
 
-var displayOptions = function(results, keyword){
+var displayOptions = function(results){
+    //reset results
+    $("#display-recipes").text("");
+    $("#no-results").text("");
+
+
     if(results.length == 0){
         $("#no-results").text("No results found for " + keyword + ".");
         return false;
     }
 
-    //else, remove no-results and create cards
-    $("#no-results").text("");
     for(var i=0; i<results.length; i++){
-        //maybe we can create card buttons that englobe the image with name at the bottom and when clicked display the info
-        console.log(results[i].title);
-        
-        //addEventListener for click, then open modal with info from the option clicked
-        console.log(results[i].id);
+        createCardRecipe(results[i].title, results[i].id, results[i].image)
     }
+};
+
+var createCardRecipe = function(title, id, imageUrl){
+    // variable pointing to recipes container
+    var recipesContainerEl = document.querySelector("#display-recipes");
+    //create button to whom image and title will be appended.
+    var cardButton = document.createElement("button");
+    cardButton.classList = "recipe-card"
+
+    //create img and text title, and append them to button
+    var imageEl = document.createElement("img");
+    imageEl.classList = "recipe-img";
+    imageEl.src = imageUrl;
+    imageEl.alt = "the recipe for " + title; 
+    var titleEl = document.createElement("h2");
+    titleEl.textContent = title;
+    titleEl.classList = "recipe-title text-uppercase";
+
+    //append image and text to button
+    cardButton.appendChild(imageEl);
+    cardButton.appendChild(titleEl);
+
+    cardButton.addEventListener("click", recipeClickHandler);
+
+    //append button to recipes container
+    recipesContainerEl.appendChild(cardButton);
+
+    //card will be a button that when clicked will display a modal.
+
+    //maybe id wont be useful now. We will just create the buttons. when buttons are clicked then we worry about id
+};
+
+var recipeClickHandler = function (event){
+    console.log(event);
+    $(".modal").classList = "is-active";
+
+    //addEventListener for click, then open modal with info from the option clicked
 };
 
 var searchHandler = function(event) {
@@ -68,64 +104,12 @@ var searchHandler = function(event) {
     }
     else{
         keyword = searchString;
-        $("#string-span").text(keyword);//recipes for keyword
+        $("#string-span").text(keyword);//recipe results for keyword
         $('#search').children('input').val('');//clear input value
         getRecipes(keyword);
     }
 };
 
 //callers/listeners
-searchEl.addEventListener("submit", searchHandler);
 getkeyword();
-
-
-
-// var displayRepos = function(repos, searchTerm){
-//     //clear old content
-//     repoContainerEl.textContent = "";
-//     repoSearchTerm.textContent = searchTerm;
-
-//     if(repos.length === 0){
-//         repoContainerEl.textContent = "No repositories found.";
-//         return;
-//     }
-
-//     for(var i=0; i<repos.length; i++){//looping through all repos that a give user has
-//         //format repo name
-//         var repoName = repos[i].owner.login + "/" + repos[i].name;
-
-//         //create a container for each repo
-//         var repoEl = document.createElement("a");
-//         repoEl.classList = "list-item flex-row justify-space-between align-center";
-//         repoEl.setAttribute("href", "./single-repo.html?repo=" + repoName);
-
-//         //create a span element to hold repository name
-//         var titleEl = document.createElement("span");
-//         titleEl.textContent = repoName;
-
-//         //append span to container, 
-//         repoEl.appendChild(titleEl);
-
-//         //create a status element
-//         var statusEl = document.createElement("span");
-//         statusEl.classList = "flex-row align-center";
-
-//         //check if current repo has issues or not
-//         if (repos[i].open_issues_count > 0){
-//             statusEl.innerHTML = 
-//             "<i class='fas fa-times status-icon icon-danger'></i>" + repos[i].open_issues_count + " issue(s)";
-//         }
-//         else{
-//             statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
-//         }
-
-//         //append second span to container
-//         repoEl.appendChild(statusEl);
-
-//         //append container to dom
-//         repoContainerEl.appendChild(repoEl);
-//     }
-// }
-
-
-
+searchEl.addEventListener("submit", searchHandler);
