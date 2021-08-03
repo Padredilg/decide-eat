@@ -110,6 +110,16 @@ header form {
     font-size: 1.25rem;
 }
 
+
+.footer {
+    background-color: var(--whiteish);
+    color: var(--dark-brown);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 4px;
+    text-align: center;
+}
+
 #display-recipes {
     display: flex;
     flex-direction: row;
