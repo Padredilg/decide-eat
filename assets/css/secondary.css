@@ -159,7 +159,7 @@ header form {
 
 .modal{
     animation-name: animatetop;
-    animation-duration: 0.5s;
+    animation-duration: 1s;
 }
 
 /* Add Animation */
