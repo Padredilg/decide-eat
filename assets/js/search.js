@@ -21,7 +21,6 @@ var getkeyword = function(){
 
     if(keyword){
         $("#string-span").text(keyword);//recipes for keyword
-        console.log(keyword);
         if(keyword === "Italian" || keyword === "Thai" || keyword === "Indian" || keyword === "Mexican" || 
         keyword === "American" || keyword === "Korean" || keyword === "German" || keyword === "Vietnamese" || 
         keyword === "Chinese" || keyword === "Greek"){//comes from category button
@@ -131,8 +130,8 @@ var recipeClickHandler = function(event){
     $("#body").on("click", function(event) {
         if(event.target.className == "modal-background" || event.target.className == "delete"){
             $("#myModal").removeClass("is-active");
-            $(".modal-card-body").innerHTML("");
-            $(".modal-card-title").text("Loading...");
+            $(".modal-card-body").text("");
+            $(".modal-card-title").text("");
         }
     });
 
@@ -155,6 +154,7 @@ var getModalInfo = function(recipeId){
         .then(function(response) {
             if(response.ok){
                 response.json().then(function(data) {
+                    // console.log(data)
                     populateModal(data.image, data.title, data.instructions, data.extendedIngredients, data.readyInMinutes, data.servings);
                 });
             }
@@ -170,13 +170,6 @@ var getModalInfo = function(recipeId){
 };
 
 var populateModal = function(image, title, instructions, extendedIngredients, readyInMinutes, servings){
-    console.log(image);
-    console.log(title);
-    console.log(instructions);
-    console.log(extendedIngredients);
-    console.log(readyInMinutes);
-    console.log(servings);
-
     //create var pointing to modal content
     var containerEl = document.querySelector(".modal-card-body");
 
@@ -188,11 +181,52 @@ var populateModal = function(image, title, instructions, extendedIngredients, re
     var imageEl = document.createElement("img");
     imageEl.src = image;
     imageEl.alt = title;
-    //create var for instructions and textContent is the instructions passed
-    // create var for preparingTime
-    //create var for ingredients, create var for servings
+    imageEl.className = "modal-image";
 
-    //Use these variables to populate the modal --> #myModal
+    //create div to have time and servings in-line
+    var timeAndServingDiv = document.createElement("div");
+    timeAndServingDiv.className = "time-and-serving";
+    // create var for preparingTime
+    var prepareTimeEl = document.createElement("h6");
+    prepareTimeEl.innerHTML = "<i class='fas fa-clock'></i> Approximately: " + readyInMinutes + " min.";
+    timeAndServingDiv.appendChild(prepareTimeEl);
+    //create var for servings
+    var servingsEl = document.createElement("h6");
+    servingsEl.innerHTML = "<i class='fas fa-utensils'></i> Servings: " + servings;
+    timeAndServingDiv.appendChild(servingsEl);
+
+    //create var for ingredients title
+    var ingredientsTitleEl = document.createElement("h5");
+    ingredientsTitleEl.textContent = "Ingredients"
+    ingredientsTitleEl.className = "modal-section-title";
+    //create ul to hold elements. each new element added through loop will be an li element
+    var ingredientsContainerEl = document.createElement("ul");
+    ingredientsContainerEl.className = "ingredients-container";
+    for(var i = 0; i<extendedIngredients.length; i++){
+        // console.log(extendedIngredients[i]);
+        var ingredientEl = document.createElement("li");
+        ingredientEl.textContent = extendedIngredients[i].originalString;
+        ingredientEl.className = "ingredient";
+        ingredientsContainerEl.appendChild(ingredientEl);
+    }
+
+    //create var for instructions title
+    var instructionsTitleEl = document.createElement("h5");
+    instructionsTitleEl.textContent = "Instructions"
+    instructionsTitleEl.className = "modal-section-title";
+    //create var for instructions and textContent is the instructions passed
+    var instructionsEl = document.createElement("p");
+    instructionsEl.innerHTML = instructions;
+    instructionsEl.className = "recipe-instructions"
+
+
+    //Append each element to the modal in order
+    containerEl.appendChild(imageEl);
+    containerEl.appendChild(timeAndServingDiv);
+    containerEl.appendChild(ingredientsTitleEl);
+    containerEl.appendChild(ingredientsContainerEl);
+    containerEl.appendChild(instructionsTitleEl);
+    containerEl.appendChild(instructionsEl);
 };
 
 var searchHandler = function(event) {
@@ -227,8 +261,4 @@ var searchHandler = function(event) {
 //callers/listeners
 getkeyword();
 searchEl.addEventListener("submit", searchHandler);
-
-//When Alex does the pull, merge, then delete category.html and category.js, and do a new pull for others to get.
-//Make sure to correctly link the buttons in the index to the search html page.
-//Update searchHandler to include all cases from the buttons
 
