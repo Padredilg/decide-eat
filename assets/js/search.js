@@ -1,3 +1,11 @@
+//Keys
+var Luiz = '86228e9ea08f4ba99c66512deff69e2a';
+var Brooke = '';
+var Alex = '';
+var Eric = '';
+//if you will test the app, please change to your API Key.
+var apiKey = Luiz;
+
 //querySelectors
 var searchEl = document.querySelector("#search");
 var searchKeyEl = document.querySelector("#search-key");
@@ -11,15 +19,43 @@ var getkeyword = function(){
     keyword = queryString.split("=")[1];
 
     if(keyword){
-        $("#string-span").text(keyword);//recipes for keyword
-        getRecipes(keyword);
+        
+        if(keyword == "Italian"){//This comes from the Buttons in the index category section
+            getRecipesByCuisine(keyword);
+        }
+        else{
+            $("#string-span").text(keyword);//recipes for keyword
+            getRecipesByQuery(keyword);
+        }
     }
 };
 
-var getRecipes = function(keyword) {
+var getRecipesByQuery = function(keyword) {
     //we are using the search as a query
-    var apiUrl = "https://api.spoonacular.com/recipes/complexSearch?apiKey=86228e9ea08f4ba99c66512deff69e2a&query=" + keyword;
+    var apiUrl = "https://api.spoonacular.com/recipes/complexSearch?apiKey="  + apiKey + "&query=" + keyword;
     //fetching by query to find foods with that name.
+    fetch(apiUrl)
+        .then(function(response) {
+            if(response.ok){
+                response.json().then(function(data) {
+                    //console.log(data);
+                    displayOptions(data.results);
+                });
+            }
+            //if request was not successful
+            else{//when does this else happen??
+                alert("Error: Unable to connect to Recipe Library! (Max API requests exceeded for this key)");
+            }
+        })
+        .catch(function(error){
+            alert("No internet connection!");
+        })      
+};
+
+var getRecipesByCuisine = function(keyword) {
+    //we are using the search as a query
+    var apiUrl = "https://api.spoonacular.com/recipes/complexSearch?apiKey=86228e9ea08f4ba99c66512deff69e2a&cuisine=" + keyword;
+    //fetching by cuisine to find foods with that name.
     fetch(apiUrl)
         .then(function(response) {
             if(response.ok){
@@ -34,7 +70,7 @@ var getRecipes = function(keyword) {
             }
             //if request was not successful
             else{//when does this else happen??
-                alert("Error: No" + keyword + "found!");
+                alert("Error: Unable to connect to Recipe Library! (Max API requests exceeded for this key)");
             }
         })
         .catch(function(error){
@@ -91,7 +127,8 @@ var recipeClickHandler = function(event){
     $("#body").on("click", function(event) {
         if(event.target.className == "modal-background" || event.target.className == "delete"){
             $("#myModal").removeClass("is-active");
-            //also clear the modal content
+            $(".modal-card-body").innerHTML("");
+            $(".modal-card-title").text("Loading...");
         }
     });
 
@@ -108,28 +145,18 @@ var recipeClickHandler = function(event){
 var getModalInfo = function(recipeId){
     // console.log(recipeId);
     //we will perform the fetch here and console log the new data
-    var apiUrl = "https://api.spoonacular.com/recipes/" + recipeId + "/information?apiKey=86228e9ea08f4ba99c66512deff69e2a&includeNutrition=false";
+    var apiUrl = "https://api.spoonacular.com/recipes/" + recipeId + "/information?apiKey=" + apiKey + "&includeNutrition=false";
     //fetching by id to find foods with that name.
     fetch(apiUrl)
         .then(function(response) {
             if(response.ok){
                 response.json().then(function(data) {
-                    // console.log(data);
-                    // console.log(data.image);
-                    // console.log(data.title);
-                    // console.log(data.instructions);
-                    // console.log(data.extendedIngredients);
-                    // console.log(data.readyInMinutes);
-                    // console.log(data.servings);
-
                     populateModal(data.image, data.title, data.instructions, data.extendedIngredients, data.readyInMinutes, data.servings);
-                    //. image, instructions, extendedIngredients, title, readyInMinutes, servings
-                    //this data contains everything, so we can pass it to a new function to populate the modal
                 });
             }
             //if request was not successful
-            else{//when does this else happen??
-                alert("Error: Recipe not found!");
+            else{//Happens when API key uses gets expired
+                alert("Error: Unable to connect to Recipe Library! (Max API requests exceeded for this key)");
             }
         })
         .catch(function(error){
@@ -146,6 +173,21 @@ var populateModal = function(image, title, instructions, extendedIngredients, re
     console.log(readyInMinutes);
     console.log(servings);
 
+    //create var pointing to modal content
+    var containerEl = document.querySelector(".modal-card-body");
+
+    //create var for title and its textContent is the title
+    var titleEl = document.querySelector(".modal-card-title");
+    titleEl.textContent = title;
+
+    //create var for image with src being the image passed
+    var imageEl = document.createElement("img");
+    imageEl.src = image;
+    imageEl.alt = title;
+    //create var for instructions and textContent is the instructions passed
+    // create var for preparingTime
+    //create var for ingredients, create var for servings
+
     //Use these variables to populate the modal --> #myModal
 };
 
@@ -158,13 +200,27 @@ var searchHandler = function(event) {
         return false;
     }
     else{
-        keyword = searchString;
-        $("#string-span").text(keyword);//recipe results for keyword
-        $('#search').children('input').val('');//clear input value
-        getRecipes(keyword);
+        searchString = searchString.toLowerCase();
+
+        if(searchString == "italian" || searchString == "japanese"){
+            keyword = searchString;
+            $("#string-span").text(keyword);//recipe results for keyword
+            $('#search').children('input').val('');//clear input value
+            getRecipesByCuisine(keyword);
+        }
+        else{
+            keyword = searchString;
+            $("#string-span").text(keyword);//recipe results for keyword
+            $('#search').children('input').val('');//clear input value
+            getRecipesByQuery(keyword);
+        }        
     }
 };
 
 //callers/listeners
 getkeyword();
 searchEl.addEventListener("submit", searchHandler);
+
+//When Alex does the pull, merge, then delete category.html and category.js, and do a new pull for others to get.
+//Make sure to correctly link the buttons in the index to the search html page.
+//Update searchHandler to include all cases from the buttons
