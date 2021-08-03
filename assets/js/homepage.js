@@ -45,7 +45,6 @@ why only 10 results appear?
 
 var searchEl = document.querySelector("#search");
 var searchKeyEl = document.querySelector("#search-key");
-
 //get an event listener to get the value from the searchbar
 var searchHandler = function(event) {
     event.preventDefault();
@@ -58,5 +57,19 @@ var searchHandler = function(event) {
 
     location.href = "./search-results.html?search=" + searchString;
 }
+var categoryHandler =function(event){
+    console.log(event.target.innerHTML)
+    var buttonText = event.target.innerHTML;
+
+   location.href = "./category-results.html?search=" + buttonText;
+};
+
+//categoryBtn.addEventListener("click", categoryHandler);
+var allBtns = document.querySelectorAll(".btn"); //[button1 , button2]
+//for loop on the buttons
+allBtns.forEach((button)=>{
+button.addEventListener("click", categoryHandler);
+})
+
 
 searchEl.addEventListener("submit", searchHandler);

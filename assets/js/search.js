@@ -1,7 +1,7 @@
 //Keys
 var Luiz = '86228e9ea08f4ba99c66512deff69e2a';
 var Brooke = '';
-var Alex = '';
+var Alex = 'c2afdee2474f483f939c3870eb87ac75';
 var Eric = '';
 //if you will test the app, please change to your API Key.
 var apiKey = Luiz;
@@ -9,9 +9,11 @@ var apiKey = Luiz;
 //querySelectors
 var searchEl = document.querySelector("#search");
 var searchKeyEl = document.querySelector("#search-key");
+var categoryBtn =document.querySelector(".btn");
 
 //variables
 var keyword;
+// alex api key c2afdee2474f483f939c3870eb87ac75
 
 //functions
 var getkeyword = function(){
@@ -93,6 +95,7 @@ var displayOptions = function(results){
         createCardRecipe(results[i].title, results[i].id, results[i].image)
     }
 };
+
 
 var createCardRecipe = function(title, id, imageUrl){
     // variable pointing to recipes container
@@ -224,3 +227,4 @@ searchEl.addEventListener("submit", searchHandler);
 //When Alex does the pull, merge, then delete category.html and category.js, and do a new pull for others to get.
 //Make sure to correctly link the buttons in the index to the search html page.
 //Update searchHandler to include all cases from the buttons
+
