@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./assets/css/secondary.css" />
     <title>Decide Eat - Search Results</title>
 </head>
-<body>
+<body id="body">
     <main>
         <header>
             <a href="./index.html" class="home text-uppercase">Decide Eat</a>
@@ -27,12 +27,26 @@
 
         <section>
             <div class="results-for">
-                <h2 class="text-uppercase">Recipe Results For <span id="string-span"></span>: </h2>
+                <h2 class="text-uppercase">Recipe Results For <span id="string-span"><!--keyword--></span>: </h2>
             </div>
 
             <h3 id="no-results" class="center"></h3>
 
+            <div id="display-recipes"></div>
         </section>
+
+        <div id="myModal" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title">Loading...</p>
+                <button class="delete" aria-label="close"></button>
+              </header>
+              <section class="modal-card-body">
+              </section>
+              <footer class="modal-card-foot"> HMMMMMM... </footer>
+            </div>
+          </div>
         
     </main>
 

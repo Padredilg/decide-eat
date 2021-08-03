@@ -163,6 +163,23 @@ header form {
     font-size: 45px;
     line-height: 80%;
 }
+.category{ 
+    padding: 5px 15px 10px;
+    font-size: 1.8rem;
+    font-weight: Bold;
+    border: 0;
+    border-radius: 5px;
+    background-color: var(--whiteish);
+    transition: all .3s ease-in-out;
+    background-size: 1px 180px;
+    margin: 50px;
+
+}
+  
+.category:hover {
+    background-position: 1px -200px;
+    color: var(--orangey-brown);
+}
 
 .columns {
     align-items: center;
@@ -171,8 +188,8 @@ header form {
 .footer {
     background-color: var(--light-brown);
     color: var(--whiteish);
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 19px;
+    padding-bottom: 19px;
     padding-left: 4px;
     text-align: center;
 }

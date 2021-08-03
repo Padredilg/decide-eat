@@ -110,6 +110,7 @@ header form {
     font-size: 1.25rem;
 }
 
+
 .footer {
     background-color: var(--whiteish);
     color: var(--dark-brown);
@@ -117,4 +118,121 @@ header form {
     padding-bottom: 20px;
     padding-left: 4px;
     text-align: center;
+}
+
+#display-recipes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    margin: 0 auto;
+    width: 95%;
+}
+
+.recipe-card {
+    text-align: center;
+    margin: 15px;
+    background: none;
+    border: none;
+    transition: all .25s ease-in-out;
+    width: 25%;
+}
+
+.recipe-card:hover{
+    transform: scale(1.065);
+}
+
+.recipe-img {
+    border-radius: 30px;
+    width: 80%;
+    margin: 0 0 11px 0;
+}
+
+.recipe-title{
+    font-size: 15px;
+    text-align: left;
+    padding-left: 37px;
+    font-weight: bold;
+}
+
+.modal{
+    animation-name: animatetop;
+    animation-duration: 0.5s;
+}
+
+/* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.modal-card-head {
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    background: var(--light-brown);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    margin: 0;
+}
+
+.modal-card-body {
+    background-color: var(--whiteish);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-image {
+    width: 85%;
+    border-radius: 25px;
+}
+
+.time-and-serving {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 80%;
+    justify-content: space-between;
+    margin: 12px auto;
+    font-size: 1.1rem;
+}
+
+.modal-section-title {
+    font-size: 1.5rem;
+    font-style: italic;
+    text-decoration: underline;
+    margin: 20px auto 10px auto;
+}
+
+.ingredients-container {
+    list-style: none;
+    width: 95%;
+    text-align: center;
+    outline: double;
+    line-height: 30px;
+    padding: 10px;
+}
+
+.ingredient{
+    list-style: inside;
+}
+
+.recipe-instructions {
+    text-align: justify;
+    line-height: 30px;
+    padding: 15px 35px;
+    outline: double;
+    width: 95%;
+}
+
+.modal-card-foot {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background-color: var(--light-brown);
+    border-top: 1px solid rgba(255,255,255,0.5);
+    text-align: center;
+    justify-content: center;
+    font-style: italic;
+    width: 100%;
 }
