@@ -1,18 +1,76 @@
-:root{
+:root {
     --whiteish: #FFFCF7;
     --orangey-brown: #BD764C;
     --medium-brown: #764E37;
     --dark-brown: #474037;
+    --light-brown: #C8A585;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: "Hammersmith One";
     color: var(--dark-brown);
     background-color: var(--whiteish);
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.letter-spacing{
+    letter-spacing: 5px;
+}
+
+.center {
+    text-align: center;
+}
+
+.nav-title{
+   margin: 0 auto 1rem auto;
+    padding: 1rem 6rem 0 6rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a { 
+    color: inherit;
+    font-size: 32px;
+    } 
+
+
+.hero {
+    background-image: url("../images/quiz-bg.png");
+    background-size: cover;}
+
+.title {
+    text-transform: uppercase;
+    color: var(--whiteish);
+    font-size: 30px;
+    text-align: center;
+}
+
+.card-header {
+    background-color: var(--medium-brown);
+    margin-top: 70px;
+}
+
+.card-header-title {
+color: var(--whiteish);
+text-align: center;
+}
+
+.footer {
+    background-color: var(--whiteish);
+    color: var(--dark-brown);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 4px;
+    text-align: center;
 }
