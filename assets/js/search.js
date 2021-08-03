@@ -4,7 +4,7 @@ var Brooke = '';
 var Alex = 'c2afdee2474f483f939c3870eb87ac75';
 var Eric = '';
 //if you will test the app, please change to your API Key.
-var apiKey = Luiz;
+var apiKey = Alex;
 
 //querySelectors
 var searchEl = document.querySelector("#search");
@@ -13,7 +13,6 @@ var categoryBtn =document.querySelector(".btn");
 
 //variables
 var keyword;
-// alex api key c2afdee2474f483f939c3870eb87ac75
 
 //functions
 var getkeyword = function(){
@@ -21,12 +20,14 @@ var getkeyword = function(){
     keyword = queryString.split("=")[1];
 
     if(keyword){
-        
-        if(keyword == "Italian"){//This comes from the Buttons in the index category section
+        $("#string-span").text(keyword);//recipes for keyword
+
+        if(keyword == "Italian" || keyword == "Thai" || keyword == "Indian" || keyword == "Mexican" || 
+        keyword == "American" || keyword == "Korean" || keyword == "German" || keyword == "Vietnamese" || 
+        keyword == "Chinese" || keyword == "Greek"){//comes from category button
             getRecipesByCuisine(keyword);
         }
         else{
-            $("#string-span").text(keyword);//recipes for keyword
             getRecipesByQuery(keyword);
         }
     }
@@ -205,7 +206,10 @@ var searchHandler = function(event) {
     else{
         searchString = searchString.toLowerCase();
 
-        if(searchString == "italian" || searchString == "japanese"){
+        if(keyword == "italian" || keyword == "thai" || keyword == "indian" || keyword == "mexican" || 
+        keyword == "american" || keyword == "korean" || keyword == "german" || keyword == "vietnamese" || 
+        keyword == "chinese" || keyword == "greek"){
+            
             keyword = searchString;
             $("#string-span").text(keyword);//recipe results for keyword
             $('#search').children('input').val('');//clear input value
