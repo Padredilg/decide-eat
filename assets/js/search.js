@@ -1,9 +1,11 @@
 //querySelectors
 var searchEl = document.querySelector("#search");
 var searchKeyEl = document.querySelector("#search-key");
+var categoryBtn =document.querySelector(".btn");
 
 //variables
 var keyword;
+// alex api key c2afdee2474f483f939c3870eb87ac75
 
 //functions
 var getkeyword = function(){
@@ -57,6 +59,7 @@ var displayOptions = function(results){
         createCardRecipe(results[i].title, results[i].id, results[i].image)
     }
 };
+
 
 var createCardRecipe = function(title, id, imageUrl){
     // variable pointing to recipes container
@@ -124,3 +127,5 @@ var searchHandler = function(event) {
 //callers/listeners
 getkeyword();
 searchEl.addEventListener("submit", searchHandler);
+
+
