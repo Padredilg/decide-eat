@@ -57,18 +57,19 @@ var searchHandler = function(event) {
 
     location.href = "./search-results.html?search=" + searchString;
 }
+
 var categoryHandler =function(event){
-    console.log(event.target.innerHTML)
+    // console.log(event.target.innerHTML)
     var buttonText = event.target.innerHTML;
 
-   location.href = "./category-results.html?search=" + buttonText;
+   location.href = "./search-results.html?search=" + buttonText;
 };
 
 //categoryBtn.addEventListener("click", categoryHandler);
 var allBtns = document.querySelectorAll(".btn"); //[button1 , button2]
 //for loop on the buttons
 allBtns.forEach((button)=>{
-button.addEventListener("click", categoryHandler);
+    button.addEventListener("click", categoryHandler);
 })
 
 
