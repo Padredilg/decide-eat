@@ -1,10 +1,10 @@
 //Keys
 var Luiz = '86228e9ea08f4ba99c66512deff69e2a';
-var Brooke = '';
+var Brooke = '89bdc8c8b8e54e228879e6b64d54b9c1';
 var Alex = 'c2afdee2474f483f939c3870eb87ac75';
 var Eric = '';
 //if you will test the app, please change to your API Key.
-var apiKey = Alex;
+var apiKey = Brooke;
 
 //querySelectors
 var searchEl = document.querySelector("#search");
@@ -21,10 +21,10 @@ var getkeyword = function(){
 
     if(keyword){
         $("#string-span").text(keyword);//recipes for keyword
-
-        if(keyword == "Italian" || keyword == "Thai" || keyword == "Indian" || keyword == "Mexican" || 
-        keyword == "American" || keyword == "Korean" || keyword == "German" || keyword == "Vietnamese" || 
-        keyword == "Chinese" || keyword == "Greek"){//comes from category button
+        console.log(keyword);
+        if(keyword === "Italian" || keyword === "Thai" || keyword === "Indian" || keyword === "Mexican" || 
+        keyword === "American" || keyword === "Korean" || keyword === "German" || keyword === "Vietnamese" || 
+        keyword === "Chinese" || keyword === "Greek"){//comes from category button
             getRecipesByCuisine(keyword);
         }
         else{
@@ -57,7 +57,7 @@ var getRecipesByQuery = function(keyword) {
 
 var getRecipesByCuisine = function(keyword) {
     //we are using the search as a query
-    var apiUrl = "https://api.spoonacular.com/recipes/complexSearch?apiKey=86228e9ea08f4ba99c66512deff69e2a&cuisine=" + keyword;
+    var apiUrl = "https://api.spoonacular.com/recipes/complexSearch?apiKey=" + apiKey + "&cuisine=" + keyword;
     //fetching by cuisine to find foods with that name.
     fetch(apiUrl)
         .then(function(response) {
