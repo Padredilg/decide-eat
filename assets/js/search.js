@@ -24,7 +24,7 @@ var getRecipes = function(keyword) {
         .then(function(response) {
             if(response.ok){
                 response.json().then(function(data) {
-                    console.log(data);
+                    // console.log(data);
                     //pass data to new function that will display all images with their names and descriptions and recipes
                     //if response is ok, then open new page with this data. Pass data.results.id to new function
                     //on new function do a new fetch with the passed id
@@ -85,24 +85,68 @@ var createCardRecipe = function(title, id, imageUrl){
     recipesContainerEl.appendChild(cardButton);
 };
 
-var recipeClickHandler = function (event){
+var recipeClickHandler = function(event){
     $("#myModal").addClass("is-active");
 
     $("#body").on("click", function(event) {
         if(event.target.className == "modal-background" || event.target.className == "delete"){
             $("#myModal").removeClass("is-active");
+            //also clear the modal content
         }
     });
 
     var buttonId = event.path[1].id;
-    console.log(buttonId);
 
-
+    getModalInfo(buttonId);
 
     //populate the modal with title, image, summary, ingredients, and how to make.
     //title, image, summary, ingredients will come from information
     //how to make comes from annalyze recipe
     //both can be fetched by the ID
+};
+
+var getModalInfo = function(recipeId){
+    // console.log(recipeId);
+    //we will perform the fetch here and console log the new data
+    var apiUrl = "https://api.spoonacular.com/recipes/" + recipeId + "/information?apiKey=86228e9ea08f4ba99c66512deff69e2a&includeNutrition=false";
+    //fetching by id to find foods with that name.
+    fetch(apiUrl)
+        .then(function(response) {
+            if(response.ok){
+                response.json().then(function(data) {
+                    // console.log(data);
+                    // console.log(data.image);
+                    // console.log(data.title);
+                    // console.log(data.instructions);
+                    // console.log(data.extendedIngredients);
+                    // console.log(data.readyInMinutes);
+                    // console.log(data.servings);
+
+                    populateModal(data.image, data.title, data.instructions, data.extendedIngredients, data.readyInMinutes, data.servings);
+                    //. image, instructions, extendedIngredients, title, readyInMinutes, servings
+                    //this data contains everything, so we can pass it to a new function to populate the modal
+                });
+            }
+            //if request was not successful
+            else{//when does this else happen??
+                alert("Error: Recipe not found!");
+            }
+        })
+        .catch(function(error){
+            alert("No internet connection!");
+        })
+    
+};
+
+var populateModal = function(image, title, instructions, extendedIngredients, readyInMinutes, servings){
+    console.log(image);
+    console.log(title);
+    console.log(instructions);
+    console.log(extendedIngredients);
+    console.log(readyInMinutes);
+    console.log(servings);
+
+    //Use these variables to populate the modal --> #myModal
 };
 
 var searchHandler = function(event) {

@@ -18,7 +18,7 @@ var getkeyword = function(){
 
 var getRecipes = function(keyword) {
     //we are using the search as a query
-    var apiUrl = "https://api.spoonacular.com/recipes/complexSearch?apiKey=86228e9ea08f4ba99c66512deff69e2a&cuisine=" + keyword;
+    var apiUrl = "https://api.spoonacular.com/recipes/complexSearch?apiKey=86228e9ea08f4ba99c66512deff69e2a&query=" + keyword;
     //fetching by query to find foods with that name.
     fetch(apiUrl)
         .then(function(response) {
