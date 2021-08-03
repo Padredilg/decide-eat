@@ -65,6 +65,35 @@ color: var(--whiteish);
 text-align: center;
 }
 
+#buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.card-content {
+    background: var(--whiteish);
+}
+
+.quiz-btn {
+    margin: 6px auto;
+    width: 90%;
+    border: solid 1px var(--light-brown);
+    padding: 8px;
+    border-radius: 25px;
+    font-size: 20px;
+    background-image: linear-gradient(45deg, var(--orangey-brown) 0%, var(--orangey-brown) 52%, var(--whiteish) 90%);
+    transition: all .3s ease-in-out;
+    background-size: 1px 280px;
+    background-position: 0 -10px;
+}
+  
+.quiz-btn:hover {
+    background-position: 1px -200px;
+    color: var(--whiteish);
+}
+
 .footer {
     background-color: var(--whiteish);
     color: var(--dark-brown);

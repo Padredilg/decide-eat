@@ -23,9 +23,10 @@
                 <h1 class="home text-uppercase letter-spacing">Decide Eat</h1>
             </a>
         </nav>
-            <section class="hero is-danger is-fullheight">
-                <div class="hero-body">
-                  <div class="container has-text-centered">
+
+        <section class="hero is-danger is-fullheight">
+            <div class="hero-body">
+                <div class="container has-text-centered">
                     <h2 class="title letter-spacing">
                         What Should You Have for Dinner Tonight?
                     </h2>
@@ -34,36 +35,36 @@
                     </h3>
                     <div class="card">
                         <header class="card-header">
-                          <p class="card-header-title is-justify-content-center	letter-spacing">
-                            Questions?
-                          </p>
-                          </header>
-                          <div class="card">
+                            <p id="question" class="card-header-title is-justify-content-center letter-spacing">
+                                What’s Your Mood Right Now?
+                            </p>
+                        </header>
+                        <div class="card">
                             <div class="card-content">
-                              <div class="content">
-                                Answers...
-                            <br>
-                               A. This is an answer
-                            <br>
-                               B. This is an answer
-                            <br>
-                               C. This is an answer
-                            <br>
-                               D. This is an answer
-                              </div>
+                                <div id="buttons-container" class="content ">
+
+                                    <button class="quiz-btn" id="button-1">Super Happy</button>
+                                    <button class="quiz-btn" id="button-2">Kinda Happy</button>
+                                    <button class="quiz-btn" id="button-3">Sad</button>
+                                    <button class="quiz-btn" id="button-4">Just whatever</button>
+
+                                </div>
                             </div>
-                          </div>
-                      </div>
-                  </div>
+                        </div>
+                    </div>
                 </div>
-              </section>
-            <div id="buttons">
-                <!--Question + Options-->
-            </div>
-            </div>
-            <p id="notifier"></p>
             </div>
         </section>
+
+        <div id="buttons">
+            <!--Question + Options-->
+        </div>
+
+        <div>
+            <p id="notifier"></p>
+        </div>
+
+
     </main>
 
     <footer>
@@ -71,7 +72,7 @@
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./assets/js/quizN.js"></script>
+    <script src="./assets/js/quiz.js"></script>
 </body>
 
 </html>
