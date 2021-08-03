@@ -164,7 +164,8 @@ header form {
     line-height: 80%;
 }
 .category{ 
-    padding: 5px 15px 10px;
+    width:200px;
+    height:50px;
     font-size: 1.8rem;
     font-weight: Bold;
     border: 0;
@@ -173,7 +174,6 @@ header form {
     transition: all .3s ease-in-out;
     background-size: 1px 180px;
     margin: 50px;
-
 }
   
 .category:hover {
