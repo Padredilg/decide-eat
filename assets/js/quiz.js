@@ -4,7 +4,7 @@ var Brooke = '89bdc8c8b8e54e228879e6b64d54b9c1';
 var Alex = 'c2afdee2474f483f939c3870eb87ac75';
 var Eric = '22a96171e0b14743b65103698a203660';
 //if you will test the app, please change to your API Key.
-var apiKey = Alex;
+var apiKey = Luiz;
 
 /*Variables*/
 var questionsArr = [
@@ -43,7 +43,6 @@ var drinkCard;//title with image
 var musicCard;//title with image
 var cuisineRecipe;//recipe info
 var drinkRecipe;//recipe info
-var musicRecipe;//recipe info
 
 /*Functions*/
 var nextQuestion = function(event){
@@ -199,10 +198,29 @@ var fetchDrinkById = function(drinkId){
 }
 
 var fetchMusic = function(){
-    //fetch the music with the music variable
-    //store the music data in the musicRecipe variable
 
-    displayResults();
+    var apiUrl = "https://ws.audioscrobbler.com/2.0/?method=artist.gettoptracks&artist=" + music + "&api_key=aa6ce103ab1ac07926d6e0c30cc55bbf&format=json";
+    //fetching by id to find foods with that name.
+    fetch(apiUrl)
+        .then(function(response) {
+            if(response.ok){
+                response.json().then(function(data) {
+                    musicCard = data.toptracks.track[0];
+                    //We need title, image, ingredients, instructions
+                    displayResults();
+                });
+            }
+            //if request was not successful
+            else{//Happens when API key uses gets expired
+                alert("Error: Unable to connect to Library! (Max API requests exceeded for this key)");
+            }
+        })
+        .catch(function(error){
+            alert("No internet connection!");
+        })
+
+
+    
 };
 
 var displayResults = function(){
@@ -210,6 +228,7 @@ var displayResults = function(){
 
     createRecipeCard(cuisineCard.title, cuisineCard.image);
     createDrinkCard(drinkCard.title, drinkCard.image);
+    createMusicCard(musicCard.name);
     // createMusicCard();
 }
 
@@ -267,7 +286,33 @@ var createDrinkCard = function(title, imageUrl){
     resultsContainerEl.appendChild(cardButton);
 };
 
-//var createMusicCard = function(){};
+var createMusicCard = function(title){
+        // variable pointing to recipes container
+        var resultsContainerEl = document.querySelector("#buttons-container");
+        resultsContainerEl.classList = "buttons-container2"
+        //create button to whom image and title will be appended.
+        var cardButton = document.createElement("button");
+        cardButton.classList = "result-card"
+    
+        //create img and text title, and append them to button
+        var imageEl = document.createElement("img");
+        imageEl.classList = "result-img2";
+        imageEl.src = "./assets/images/song.png";
+        imageEl.alt = title; 
+        var titleEl = document.createElement("h2");
+        titleEl.textContent = title;
+        titleEl.classList = "result-title text-uppercase";
+    
+        //append image and text to button
+        cardButton.appendChild(imageEl);
+        cardButton.appendChild(titleEl);
+    
+        cardButton.addEventListener("click", musicClickHandler);
+    
+        //append button to recipes container
+        resultsContainerEl.appendChild(cardButton);
+
+};
 
 var recipeClickHandler = function(){
     console.log("clicked the Recipe");
@@ -297,6 +342,39 @@ var drinkClickHandler = function(){
     });
 
     populateModal(drinkRecipe);
+}
+
+var musicClickHandler = function(){
+    // open the modal and populate it with the recipe info
+    $("#myModal").addClass("is-active");
+    $("#body").on("click", function(event) {
+        if(event.target.className == "modal-background" || event.target.className == "delete"){
+            $("#myModal").removeClass("is-active");
+            $(".modal-card-body").text("");
+        }
+    });
+
+    //create var pointing to modal content
+    var containerEl = document.querySelector(".modal-card-body");
+
+    //create var for title and its textContent is the title
+    var titleEl = document.querySelector(".modal-card-title");
+    titleEl.textContent = musicCard.name;
+
+    //create var for image with src being the image passed
+    var imageEl = document.createElement("img");
+    imageEl.src = "./assets/images/song.png";
+    imageEl.alt = "music logo";
+    imageEl.className = "modal-image2";
+
+    //create var for link
+    var linkEl = document.createElement("a");
+    linkEl.textContent = "Click here to listen to the perfect music for your date night!"
+    linkEl.href = musicCard.url;
+    linkEl.className = "modal-section-title2";
+
+    containerEl.appendChild(imageEl);
+    containerEl.appendChild(linkEl);
 }
     
 var populateModal = function(recipe){
