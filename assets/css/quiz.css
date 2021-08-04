@@ -65,11 +65,19 @@ color: var(--whiteish);
 text-align: center;
 }
 
-#buttons-container {
+.buttons-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
+}
+
+.buttons-container2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .card-content {
@@ -92,6 +100,128 @@ text-align: center;
 .quiz-btn:hover {
     background-position: 1px -200px;
     color: var(--whiteish);
+}
+
+.result-card {
+    text-align: center;
+    margin: 15px;
+    background: none;
+    border: none;
+    transition: all .25s ease-in-out;
+    width: 25%;
+}
+
+.result-card:hover{
+    transform: scale(1.065);
+}
+
+.result-img {
+    border-radius: 30px;
+    width: 80%;
+    margin: 0 0 11px 0;
+}
+
+.result-img2 {
+    border-radius: 30px;
+    width: 65%;
+    margin: 0 0 11px 0;
+}
+
+.result-title{
+    font-size: 15px;
+    text-align: left;
+    padding-left: 37px;
+    font-weight: bold;
+}
+
+.modal{
+    animation-name: animatetop;
+    animation-duration: 1s;
+}
+/* Add Animation */
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+.modal-card-head {
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    background: var(--dark-brown);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    margin: 0;
+}
+.modal-card-title {
+    color: var(--whiteish);
+    text-align: center;
+}
+.modal-card-body {
+    background-color: var(--whiteish);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.modal-image {
+    width: 85%;
+    border-radius: 25px;
+}
+
+.modal-image2 {
+    width: 45%;
+    border-radius: 25px;
+}
+
+.modal-section-title2 {
+    font-size: 1.1rem;
+    color: var(--medium-brown);
+}
+
+.time-and-serving {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 80%;
+    justify-content: space-between;
+    margin: 12px auto;
+    font-size: 1.1rem;
+}
+.modal-section-title {
+    font-size: 1.5rem;
+    font-style: italic;
+    text-decoration: underline;
+    margin: 20px auto 10px auto;
+}
+
+.ingredients-container {
+    list-style: none;
+    width: 95%;
+    text-align: center;
+    outline: double;
+    line-height: 30px;
+    padding: 10px;
+}
+
+.ingredient{
+    list-style: inside;
+}
+
+.recipe-instructions {
+    text-align: justify;
+    line-height: 30px;
+    padding: 15px 35px;
+    outline: double;
+    width: 95%;
+}
+
+.modal-card-foot {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    color: var(--whiteish);
+    background-color: var(--dark-brown);
+    border-top: 1px solid rgba(255,255,255,0.5);
+    text-align: center;
+    justify-content: center;
+    font-style: italic;
+    width: 100%;
 }
 
 .footer {
