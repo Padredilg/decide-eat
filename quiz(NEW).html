@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Framework - Bulma -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <!-- fontawesome - use for icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <!-- Hammersmith One - body font -->
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/quiz.css" />
+    <title>Decide Eat - Quiz</title>
+</head>
+
+<body id="body">
+    <main>
+        <nav class="nav-title">
+            <a href="index.html">
+                <h1 class="home text-uppercase letter-spacing">Decide Eat</h1>
+            </a>
+        </nav>
+
+        <section class="hero is-danger is-fullheight">
+            <div class="hero-body">
+                <div class="container has-text-centered">
+                    <h2 class="title letter-spacing">
+                        What Should You Have for Dinner Tonight?
+                    </h2>
+                    <h3 class="subtitle letter-spacing">
+                        Take our quiz to find your perfect dinner combination.
+                    </h3>
+                    <div class="card">
+                        <header class="card-header">
+                            <p id="question" class="card-header-title is-justify-content-center letter-spacing">
+                                What’s Your Mood Right Now?
+                            </p>
+                        </header>
+                        <div class="card">
+                            <div class="card-content">
+                                <div id="buttons-container" class="content ">
+
+                                    <button class="quiz-btn" id="button-1">Super Happy</button>
+                                    <button class="quiz-btn" id="button-2">Kinda Happy</button>
+                                    <button class="quiz-btn" id="button-3">Sad</button>
+                                    <button class="quiz-btn" id="button-4">Just whatever</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="buttons">
+            <!--Question + Options-->
+        </div>
+
+        <div>
+            <p id="notifier"></p>
+        </div>
+
+        <div id="myModal" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title">RESULTS</p>
+                <button class="delete" aria-label="close"></button>
+              </header>
+              <section id="display-recipes" class="modal-card-body">
+              </section>
+            </div>
+          </div>
+
+
+    </main>
+
+    <footer>
+        <h4 class="footer letter-spacing">Made with 🤎 by Luiz Padredi, Brooke Madison, Alex Clarke, and Eric Cili</h4>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./assets/js/quiz.js"></script>
+</body>
+
+</html>
