@@ -16,7 +16,7 @@
     <title>Decide Eat - Quiz</title>
 </head>
 
-<body>
+<body id="body">
     <main>
         <nav class="nav-title">
             <a href="index.html">
@@ -45,7 +45,7 @@
                               <div class="content">
                               </div>
 
-                                <div id="buttons-container" class="content ">
+                                <div id="buttons-container" class="content buttons-container">
 
                                     <button class="quiz-btn" id="button-1">Super Happy</button>
                                     <button class="quiz-btn" id="button-2">Kinda Happy</button>
@@ -61,14 +61,20 @@
     </main>
         </section>
 
-        <div id="buttons">
-            <!--Question + Options-->
-        </div>
+    <div id="myModal" class="modal">
+        <div class="modal-background"></div>
 
-        <div>
-            <p id="notifier"></p>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">RESULTS</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section id="display-recipes" class="modal-card-body">
+                <!--Content-->
+            </section>
+            <footer class="modal-card-foot"> HMMMMMM... </footer>
         </div>
-
+    </div>
 
     </main>
 

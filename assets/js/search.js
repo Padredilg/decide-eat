@@ -4,7 +4,7 @@ var Brooke = '89bdc8c8b8e54e228879e6b64d54b9c1';
 var Alex = 'c2afdee2474f483f939c3870eb87ac75';
 var Eric = '';
 //if you will test the app, please change to your API Key.
-var apiKey = Brooke;
+var apiKey = Luiz;
 
 //querySelectors
 var searchEl = document.querySelector("#search");
