@@ -25,10 +25,10 @@ In the future we would like to include a way for users to be able to favorite/sa
 
 ## Credits
 
-https://github.com/padredilg
-https://github.com/brookemadison
-https://github.com/aclarke0307
-https://github.com/ericjcili
+* https://github.com/padredilg
+* https://github.com/brookemadison
+* https://github.com/aclarke0307
+* https://github.com/ericjcili
 
 
 ## Framework
