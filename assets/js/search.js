@@ -202,7 +202,7 @@ var populateModal = function(image, title, instructions, extendedIngredients, re
     var ingredientsContainerEl = document.createElement("ul");
     ingredientsContainerEl.className = "ingredients-container";
     for(var i = 0; i<extendedIngredients.length; i++){
-        console.log(extendedIngredients[i]);
+        // console.log(extendedIngredients[i]);
         var ingredientEl = document.createElement("li");
         ingredientEl.textContent = extendedIngredients[i].name;
         ingredientEl.className = "ingredient";
