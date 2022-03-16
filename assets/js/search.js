@@ -96,7 +96,6 @@ var displayOptions = function(results){
     }
 };
 
-
 var createCardRecipe = function(title, id, imageUrl){
     // variable pointing to recipes container
     var recipesContainerEl = document.querySelector("#display-recipes");
@@ -203,9 +202,9 @@ var populateModal = function(image, title, instructions, extendedIngredients, re
     var ingredientsContainerEl = document.createElement("ul");
     ingredientsContainerEl.className = "ingredients-container";
     for(var i = 0; i<extendedIngredients.length; i++){
-        // console.log(extendedIngredients[i]);
+        console.log(extendedIngredients[i]);
         var ingredientEl = document.createElement("li");
-        ingredientEl.textContent = extendedIngredients[i].originalString;
+        ingredientEl.textContent = extendedIngredients[i].name;
         ingredientEl.className = "ingredient";
         ingredientsContainerEl.appendChild(ingredientEl);
     }

@@ -157,6 +157,7 @@ header form {
     font-weight: bold;
 }
 
+/* MODAL STARTS */
 .modal{
     animation-name: animatetop;
     animation-duration: 1s;
@@ -236,3 +237,5 @@ header form {
     font-style: italic;
     width: 100%;
 }
+
+/* MODAL ENDS */

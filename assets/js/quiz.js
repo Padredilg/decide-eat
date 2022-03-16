@@ -389,7 +389,7 @@ var populateModal = function(recipe){
     for(var i = 0; i<recipe.extendedIngredients.length; i++){
         // console.log(extendedIngredients[i]);
         var ingredientEl = document.createElement("li");
-        ingredientEl.textContent = recipe.extendedIngredients[i].originalString;
+        ingredientEl.textContent = recipe.extendedIngredients[i].name;
         ingredientEl.className = "ingredient";
         ingredientsContainerEl.appendChild(ingredientEl);
     }
